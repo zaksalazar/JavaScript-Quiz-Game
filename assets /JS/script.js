@@ -1,25 +1,25 @@
 //variables 
-const quizContainer = document.getElementById('quiz');
-const resultsContainer = document.getElementById('results');
-const submitButton = document.getElementById('submit');
-const myQuestions = [
+var score = 0; 
+var questions = [
     {
-        question: "Insert first question here?",
-answers: 
+        prompt: "Insert first question here?",
+
+// answers: 
      a: "answer one", 
      b: "answer two",
      c: "answer three"
+
 },
 {
-    question: "Insert second question here?",
-    answers: {
+prompt: "Insert second question here?",
+
       a: "answer one",
       b: "answer two",
       c: "answer three"
     },
 
   {
-    question: "Insert third question here?",
+    prompt: "Insert third question here?",
     answers: {
       a: "answer one",
       b: "answer two",
@@ -28,25 +28,14 @@ answers:
   },
 ];
 
-//function build quiz 
-function buildQuiz(){
-//variable to store the HTML output  {
-    const output=[];
+//for loop to loop through questions 
 
-    myQuestions.forEach(
-        (currentQuestion, questionNumber) => {
-            //variable to store the list of possible answers 
-            const answers = [];
-
-            //and for each available answer 
-            for(letter in currentQuestion.answers){
-        }
-    )
-
-//function show results 
-function showResults () {}
-
-//call function 
-buildQuiz();
-//on submit show results 
-submitButton.addEventListener('click',showResults); 
+for (var i=o;i < questions.length; i++){
+    var response = window.prompt(questions[i].prompt)
+    if (response == questions[i].answers.a){
+        score ++;
+        alert("Correct!");
+    } else { alert("Wrong"); 
+}
+}
+alert("you got " + score + "/" + questions.length);
