@@ -81,3 +81,9 @@ body.wrong {
 .hide {
     display: none;
 }
+
+#question{
+    margin-left: 140px;
+    font-size: 20px;
+    font-weight:bold;
+}

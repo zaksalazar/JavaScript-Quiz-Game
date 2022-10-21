@@ -2,13 +2,13 @@
 const qs = function (tag){
     return document.getElementById(tag) 
 }
-const startButton = qs('#start-btn');
-const nextButton = qs('#next-btn');
-const questionContainerElment =qs ('#questions-container')
-const answerButton = qs('.answer-btn');
+const startButton = qs('start-btn');
+const nextButton = qs('next-btn');
+const questionContainerElement = qs ('question-container')
+const answerButton = qs('answer-btn');
 const timer = qs('.timer');
-const questionElement = qs ('#question')
-const answerButtonsElement = qs('#answer-buttons')
+const questionElement = qs ('question')
+const answerButtonsElement = qs('answer-buttons')
 
 let shuffledQuestions, currentQuestionIndex
 //TODO: add event listener for start button. When "click" start application 
@@ -34,6 +34,7 @@ function startGame() {
 
 // set event listener for next button and generate sequential questions with 3 wrong answers and 1 correct answer. 
 function setNextQuestion(){
+    resetState()
     showQuestion(shuffledQuestions[currentQuestionIndex])
 }
 
@@ -51,8 +52,15 @@ function showQuestion(question) {
     })
   }
 
-function selectAnswer(){
-
+  function resetState(){
+    nextButton.classList.add('hide') 
+    while (answerButtonsElement.firstChild) {
+      answerButtonsElement.removeChild(answerButtonsElement.firstChild) 
+    }
+  }
+function selectAnswer(e){
+const selectButton = e.target
+const correct = 
 }
 //when timer runs out stop timer, display UI, and end game and store score. 
 //When user completes all questions stop timer, display UI, and end game. 
@@ -60,7 +68,7 @@ function selectAnswer(){
 //TODO: Create Questions 
 const questions = [
     {
-     questions: 'Inside which HTML element do we put the JavaScript?', 
+     question: 'Inside which HTML element do we put the JavaScript?', 
      answers: [ 
         { text: "<script>", correct:true },
         { text: "<js>", correct:false },
