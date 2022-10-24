@@ -6,6 +6,8 @@
     --neutral: rgb(31, 31, 149);
     --wrong: red; 
     --correct: green; 
+    --bg-start: orange;
+    --bg-end: pink;
 }
 
 body {
@@ -30,10 +32,23 @@ body.wrong {
 .container { 
     width: 800px;
     max-width: 80%;
+    height: 400px;
+    max-height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: white;
     border-radius: 5px; 
     padding: 10px;
     box-shadow: 0 0 10px 2px;
+}
+
+#endgamecard {
+    background-color:white;
+    color:gold; 
+    font-size: 24px;
+    font-weight: Bold;
+    
 }
 
 .btn-grid {
@@ -51,6 +66,7 @@ body.wrong {
     color: white;
     padding: 5px 10px;
     outline: none;   
+    transition: background-color 300ms ease-in-out;
 }
 
 .btn:hover {
@@ -87,7 +103,57 @@ body.wrong {
     font-size: 20px;
     font-weight:bold;
 }
-.timer { 
-    backgroundcolor: white;
-    
+
+.timer {
+    background: white;
+    position:fixed;
+    top: 1rem;
+    right: 1rem;
+    padding: 2rem;
+    background-image: linear-gradient(90deg, var(--bg-start), var(--bg-end));
+    font-size: 40px;
+    font-weight: bold;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.wiggle-correct {
+    animation: wiggle-correct 500ms;
+}
+
+
+  
+
+@keyframes wiggle-correct {
+    0% {
+        transform: translateX(3px);
+    }
+
+    12.5% {
+        transform: translateX(-3px);
+    }
+    25% {
+        transform: translateX(3px);
+    }
+    37.5% {
+        transform: translateX(-3px);
+    }
+    50% {
+        transform: translateX(3px);
+    }
+    62.5% {
+        transform: translateX(-3px);
+    }
+    75% {
+        transform: translateX(3px);
+    }
+    87.5% {
+        transform: translateX(-3px);
+    }
+    100% {
+        transform: translateX(3px);
+    }
 }
