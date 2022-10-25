@@ -3,7 +3,7 @@
 }
 
 :root {
-    --neutral: rgb(31, 31, 149);
+    --neutral: rgb(38, 36, 36);
     --wrong: red; 
     --correct: green; 
     --bg-start: orange;
@@ -21,12 +21,11 @@ body {
     background-color: var(--neutral);
 }
 
-body.correct {
-    background-color: var(--correct);
-}
-
-body.wrong {
-    background-color: var(--wrong);
+h1 {
+    position: absolute;
+    margin-top: 0px;
+    font-size: 50px;
+    color: red;
 }
 
 .container { 
@@ -37,7 +36,7 @@ body.wrong {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
+    background-color: var(--neutral);
     border-radius: 5px; 
     padding: 10px;
     box-shadow: 0 0 10px 2px;
@@ -47,8 +46,7 @@ body.wrong {
     background-color:white;
     color:gold; 
     font-size: 24px;
-    font-weight: Bold;
-    
+    font-weight: Bold; 
 }
 
 .btn-grid {
@@ -56,7 +54,6 @@ body.wrong {
     grid-template-columns: repeat(2, auto); 
     gap: 10px;
     margin: 20px 0; 
-
 }
 
 .btn {
@@ -99,7 +96,8 @@ body.wrong {
 }
 
 #question{
-    margin-left: 140px;
+    justify-content: center;
+    align-items: center;
     font-size: 20px;
     font-weight:bold;
 }
@@ -124,8 +122,21 @@ body.wrong {
     animation: wiggle-correct 500ms;
 }
 
-
-  
+#scores {
+    background: white;
+    position:fixed;
+    top: 1rem;
+    left: 1rem;
+    padding: 2rem;
+    background-image: linear-gradient(90deg, var(--bg-start), var(--bg-end));
+    font-size: 40px;
+    font-weight: bold;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    border-radius: 5px;
+    border: 1px solid black;
+}
 
 @keyframes wiggle-correct {
     0% {

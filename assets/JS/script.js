@@ -10,6 +10,7 @@ const timerEl = qs("time");
 const questionElement = qs("question");
 const answerButtonsElement = qs("answer-buttons");
 const endGameElement = qs("endgamecard");
+const scoresEL = qs("scores");
 const questions = [
   {
     question: "Inside which HTML element do we put the JavaScript?",
@@ -49,8 +50,13 @@ const questions = [
   },
 ];
 let currentQuestionIndex = 0;
-let timeLeft = 120;
+let timeLeft = 60;
 let timer = 1;
+let score = localStorage.getItem('score');
+
+if(score){
+  scoresEL.textContent = 'High Score - ' + score;
+}
 
 //TODO: add event listener for start button. When "click" start application
 startButton.addEventListener("click", startGame);
@@ -126,7 +132,6 @@ function selectAnswer(e) {
     console.log("correct");
     //animate the button
     e.target.style.backgroundColor = "green";
-    e.target.classList.add("wiggle-correct");
     //if looks wonkey, remove the class after animation done
     timeLeft += 3;
   } else {
@@ -137,13 +142,14 @@ function selectAnswer(e) {
     timeLeft -= 5;
   }
   currentQuestionIndex++;
-  setTimeout(setNextQuestion, 2000);
+  setTimeout(setNextQuestion, 500);
 }
 
 function endGame() {
-  questionContainerElement.classList.add("hide");
-  endGameElement.classList.remove("hide");
+  questionContainerElement.textContent = "Game Over!!!🏆 "; 
+  endGameElement.classList.add("hide");
   clearInterval(timer);
+  localStorage.setItem("score",timeLeft);
 }
 
 //when timer runs out stop timer, display UI, and end game and store score.
