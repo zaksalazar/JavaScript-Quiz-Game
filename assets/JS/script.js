@@ -48,14 +48,17 @@ const questions = [
       { text: "with a cell phone", correct: false },
     ],
   },
+
 ];
 let currentQuestionIndex = 0;
 let timeLeft = 60;
 let timer = 1;
-let score = localStorage.getItem('score');
+let score = localStorage.getItem("score");
+let savedHighScore = localStorage.getItem('highScore');
 
-if(score){
-  scoresEL.textContent = 'High Score - ' + score;
+if (savedHighScore) {
+  savedHighScore = JSON.parse(savedHighScore);
+  scoresEL.textContent = "High Score - " + savedHighScore.score;
 }
 
 //TODO: add event listener for start button. When "click" start application
@@ -146,11 +149,20 @@ function selectAnswer(e) {
 }
 
 function endGame() {
-  questionContainerElement.textContent = "Game Over!!!🏆 "; 
+  questionContainerElement.classList.add("endgame");
+  questionContainerElement.textContent = "Game Over!!!🏆";
   endGameElement.classList.add("hide");
+  localStorage.setItem("score", timeLeft);
   clearInterval(timer);
-  localStorage.setItem("score",timeLeft);
 }
 
-//when timer runs out stop timer, display UI, and end game and store score.
-//When user completes all questions stop timer, display UI, and end game.
+document.getElementById("submit-btn").onclick = function () {
+  let name = document.getElementById("initials").value;
+  let score = document.getElementById("score").value;
+  let highScore = {
+    name: name,
+    score: timeLeft,
+  }
+  localStorage.setItem('highScore', JSON.stringify(highScore))
+  console.log(name);
+};

@@ -8,13 +8,17 @@
     <title>JavaScript Quiz</title>
   </head>
   <body>
-    <div class="highscore">
-      <span>View Highscores</span> 
-      <div id="scores"></div>
-    </div>
+    <div class="highscorecontainer">
+    <div id='scores'></div>
+    <label id="userinput"> Enter Your Initials</label>
+      <input type="text" id="initials"><br><br> 
+      <button type="button" id="submit-btn"> Submit</button>
+      </div>
     <div class="timer">Time Left: <span id="time"></span></div>
+    <h1> Test Your JavaScript Skills Here </h1>
     <div class="container">
       <div id="question-container" class="hide">
+        <div id='game-over' class='hide'> </div>
         <div id="question">Question</div>
         <div id="answer-buttons" class="btn-grid">
           <button class="btn">Answer 1</button>
@@ -28,8 +32,10 @@
         <button id="next-btn" class="next-btn btn hide">Next</button>
       </div>
     </div>
-    <div id='endgamecard' class = 'hide'> GAME OVER Your Score is <span id = 'score'></span></div>
-    
+    <div id="endgamecard" class="hide">
+      GAME OVER Your Score is <span id="score"></span>
+    </div>
+
     <!-- TODO add timer and high score boxes -->
   </body>
   <script src="assets/JS/script.js"></script>
