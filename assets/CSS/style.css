@@ -30,7 +30,6 @@ h1 {
     background-clip: text;
     -webkit-background-clip: text;
     margin-top: -600px;
-    margin-left: 150px;
 }
 
 .container { 
@@ -150,8 +149,9 @@ h1 {
     color: transparent;
     background-clip: text;
     -webkit-background-clip: text;
-    font-size: 16px;
+    font-size: 24px;
 }
+
 
 .endgame {
     font-size: 60px;

@@ -11,6 +11,7 @@ const questionElement = qs("question");
 const answerButtonsElement = qs("answer-buttons");
 const endGameElement = qs("endgamecard");
 const scoresEL = qs("scores");
+const inputBox = qs('userinput')
 const questions = [
   {
     question: "Inside which HTML element do we put the JavaScript?",
@@ -53,14 +54,16 @@ const questions = [
 let currentQuestionIndex = 0;
 let timeLeft = 60;
 let timer = 1;
-let score = localStorage.getItem("score");
-let savedHighScore = localStorage.getItem('highScore');
 
-if (savedHighScore) {
-  savedHighScore = JSON.parse(savedHighScore);
-  scoresEL.textContent = "High Score - " + savedHighScore.score;
+function updateHighScore(){
+  let score = localStorage.getItem("score");
+  let savedHighScore = localStorage.getItem('highScore');
+  
+  if (savedHighScore) {
+    savedHighScore = JSON.parse(savedHighScore);
+    scoresEL.textContent = "High Score - " + savedHighScore.score +' ' + savedHighScore.name;
+  }
 }
-
 //TODO: add event listener for start button. When "click" start application
 startButton.addEventListener("click", startGame);
 nextButton.addEventListener("click", () => {
@@ -151,8 +154,11 @@ function selectAnswer(e) {
 function endGame() {
   questionContainerElement.classList.add("endgame");
   questionContainerElement.textContent = "Game Over!!!🏆";
+  inputBox.classList.remove('hide'); 
   endGameElement.classList.add("hide");
+
   localStorage.setItem("score", timeLeft);
+  
   clearInterval(timer);
 }
 
@@ -164,5 +170,8 @@ document.getElementById("submit-btn").onclick = function () {
     score: timeLeft,
   }
   localStorage.setItem('highScore', JSON.stringify(highScore))
-  console.log(name);
+  updateHighScore();
 };
+
+
+updateHighScore(); 
