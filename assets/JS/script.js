@@ -1,4 +1,4 @@
-// TODO add variables, use utility function based on tag
+//variables, used utility function based on tag
 const qs = function (tag) {
   return document.getElementById(tag);
 };
@@ -55,6 +55,7 @@ let currentQuestionIndex = 0;
 let timeLeft = 60;
 let timer = 1;
 
+//Store High Scroes in local storage
 function updateHighScore(){
   let score = localStorage.getItem("score");
   let savedHighScore = localStorage.getItem('highScore');
@@ -64,7 +65,7 @@ function updateHighScore(){
     scoresEL.textContent = "High Score - " + savedHighScore.score +' ' + savedHighScore.name;
   }
 }
-//TODO: add event listener for start button. When "click" start application
+// add event listener for start button. When "click" start application
 startButton.addEventListener("click", startGame);
 nextButton.addEventListener("click", () => {
   currentQuestionIndex++;
@@ -82,6 +83,7 @@ function startGame() {
   setNextQuestion();
   startTimer();
 }
+//create timer component, set interval function in web API.
 
 function startTimer() {
   timerEl.textContent = timeLeft;
@@ -94,9 +96,6 @@ function startTimer() {
     }
   }, 1000);
 }
-//TODO: create timer component, set interval function in web API.
-
-//TODO: Store High Scroes in local storage
 
 // set event listener for next button and generate sequential questions with 3 wrong answers and 1 correct answer.
 function setNextQuestion() {
@@ -109,6 +108,7 @@ function setNextQuestion() {
   }
 }
 
+//function to navigate through questions array
 function showQuestion(question) {
   console.log("here is your question", question);
   questionElement.innerText = question.question;
@@ -151,6 +151,7 @@ function selectAnswer(e) {
   setTimeout(setNextQuestion, 500);
 }
 
+//end game function runs if timer runs out or all questions are answered
 function endGame() {
   clearInterval(timer);
   questionContainerElement.classList.add("endgame");
@@ -160,6 +161,7 @@ function endGame() {
   localStorage.setItem("score", timeLeft);
 }
 
+// This is the user input function 
 document.getElementById("submit-btn").onclick = function () {
   let name = document.getElementById("initials").value;
   let score = document.getElementById("score").value;

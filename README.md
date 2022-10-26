@@ -5,10 +5,16 @@ Highscores and user initals are saved upon entering initials and clicking submit
 
 Score and initial will be displayed upon refresh. 
 
-UPDATE THIS 
 ## Screenshot 
-![screenshot](./assets/images/Screenshot.png)
+### Screenshot upon launching 
+![screenshot](./assets/images/screenshot%20initial.png)
+
+### Screenshot at start of game 
+![screenshot](./assets/images/screenshot-start-game.png)
+
+### Screenshot at end of game 
+![screenshot](./assets/images/screenshot-end-game.png)
 
 UPDATE THIS 
 ## Deployed Website Link 
-https://zaksalazar.github.io/random-password-generator-/
+https://zaksalazar.github.io/JavaScript-Quiz-Game/
