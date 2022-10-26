@@ -75,16 +75,7 @@ h1 {
     background-color: silver;
 }
 
-.btn.correct {
-    background-color: var(--correct);
-    color: black;
-}
-
-.btn.wrong {
-    background-color: var(--wrong);
-}
-
-.start-btn, .next-btn {
+.start-btn {
     font-size: 1.5rem;
     font-weight: bold;
     padding: 10px 20px;
@@ -142,14 +133,14 @@ h1 {
     position:fixed;
     top: 1rem;
     left: 1rem;
-    padding: 15px; 
+    padding: 15px;  
 }
 #userinput {
     background-image: linear-gradient(90deg, var(--bg-start), var(--bg-end));
     color: transparent;
     background-clip: text;
     -webkit-background-clip: text;
-    font-size: 24px;
+    font-size: 35px;
 }
 
 

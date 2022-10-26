@@ -152,14 +152,12 @@ function selectAnswer(e) {
 }
 
 function endGame() {
+  clearInterval(timer);
   questionContainerElement.classList.add("endgame");
   questionContainerElement.textContent = "Game Over!!!🏆";
   inputBox.classList.remove('hide'); 
   endGameElement.classList.add("hide");
-
   localStorage.setItem("score", timeLeft);
-  
-  clearInterval(timer);
 }
 
 document.getElementById("submit-btn").onclick = function () {
